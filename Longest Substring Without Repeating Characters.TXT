@@ -1,0 +1,19 @@
+      tdict={}
+        arr=0
+        ans=''
+        if len(s)==0:
+            return 0
+        for i in range (0,len(s)):
+            if s[i] in tdict:
+                for j in tdict.keys():
+                    if tdict[j]<tdict[s[i]]:
+                        del tdict[j]
+                if len(ans)>arr:
+                    arr=len(ans)
+                ans=s[tdict[s[i]]+1:i+1]
+                tdict[s[i]]=i
+            else:
+                ans=ans+s[i]
+                tdict[s[i]]=i
+
+        return max(arr,len(ans))
