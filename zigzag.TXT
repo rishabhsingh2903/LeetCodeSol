@@ -1,0 +1,26 @@
+if (numRows==1 or numRows>(len(s)-1)):
+            return s
+        arr=[]
+        for i in range(numRows):
+            arr.append([])
+        step=0
+        var=0
+
+        for i in range(len(s)):
+
+            arr[step].append(s[i])
+            if var==0 and step<numRows-1:
+                step+=1
+            elif step==numRows-1:
+                var=1
+                step=step-1
+            elif step>0 and var==1:
+                step=step-1
+            else:
+                var=0
+                step=step+1
+        
+        for i in range (numRows):
+            arr[i]=''.join(arr[i])
+        ans=''.join(arr)
+        return ans
