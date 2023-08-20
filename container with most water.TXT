@@ -1,0 +1,24 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int: 
+        if len(height)<2:
+            return 0
+        pt1=0
+        pt2=len(height)-1
+        vol=0
+
+        while(pt1<pt2):
+            if ((pt2-pt1)*min(height[pt1],height[pt2]))>vol:
+                vol=(pt2-pt1)*min(height[pt1],height[pt2])
+            if height[pt1]>height[pt2]:
+                pt2=pt2-1
+            elif height[pt2]>height[pt1]:
+                pt1=pt1+1
+            else:
+                pt1=pt1+1
+        return vol
+
+            
+
+
+            
+
